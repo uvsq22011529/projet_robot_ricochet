@@ -98,6 +98,8 @@ def cases_restart():
 
 
 
+
+
 rob_r = robot_rouge()
 rob_b = robot_bleu()
 rob_v = robot_vert()
