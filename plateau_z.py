@@ -54,6 +54,7 @@ def robot_jaune():
 #################################################################################################
 
 def cible_rouge():
+    pass
     xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
     while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
         xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
@@ -62,6 +63,7 @@ def cible_rouge():
         return[carre_rouge]
 
 def cible_bleu():
+    pass
     xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
     while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
         xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
@@ -70,6 +72,7 @@ def cible_bleu():
         return[carre_bleu]
 
 def cible_vert():
+    pass
     xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
     while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
         xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
@@ -78,6 +81,7 @@ def cible_vert():
         return[carre_vert]
 
 def cible_jaune():
+    pass
     xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
     while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
         xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
@@ -121,8 +125,8 @@ rob_v = robot_vert()
 rob_j = robot_jaune()
 btn_restart = cases_restart()
 #restart_game(event)
-cib_r = cible_rouge()
+"""cib_r = cible_rouge()
 cib_b = cible_bleu()
 cib_v = cible_vert()
-cib_j = cible_jaune()
+cib_j = cible_jaune()"""
 fenetre.mainloop()
