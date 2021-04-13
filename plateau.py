@@ -8,9 +8,6 @@ import random
 def rectangle_automatique(leCanvas, x0,y0,largeur,hauteur,bordure,couleur1,couleur2,couleur3) :
     leCanvas.create_rectangle(x0+bordure//2, y0+bordure//2, x0+largeur-bordure//2, y0+hauteur-bordure//2, fill=couleur1, activefill=couleur2, outline=couleur3, width=bordure)
 
-
-
-
 fenetre = Tk()
 
 fenetre.title("robot ricochet")
@@ -29,12 +26,12 @@ for y in range(0,longueur, cote_carre) :
     for x in range(0,largeur, cote_carre) :
         rectangle_automatique(canvas, x, y, 55, 55, 2, "#ffffcc", "green", "brown")
 
+###############################################################################################""
 def robot_rouge():
     x, y = cote_carre/2 , cote_carre/2
     rayon = 10
     cercle_rouge = canvas.create_oval((x-rayon, y-rayon),(x+rayon, y+rayon), fill="red")
     return [cercle_rouge]
-
 
 def robot_bleu():
     x, y = largeur-(cote_carre/2), cote_carre/2
@@ -54,6 +51,8 @@ def robot_jaune():
     cercle_jaune = canvas.create_oval((x-rayon, y-rayon), (x+rayon, y+rayon), fill = "yellow")
     return[cercle_jaune]
 
+#################################################################################################
+
 def cible_rouge():
     pass
     xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
@@ -63,10 +62,38 @@ def cible_rouge():
         carre_rouge = canvas.create_rectangle((xg, yg), (xd, yd), fill = "red")
         return[carre_rouge]
 
+def cible_bleu():
+    pass
+    xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
+    while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
+        xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
+    else:
+        carre_bleu = canvas.create_rectangle((xg, yg), (xd, yd), fill = "bleu")
+        return[carre_bleu]
+
+def cible_vert():
+    pass
+    xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
+    while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
+        xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
+    else:
+        carre_vert = canvas.create_rectangle((xg, yg), (xd, yd), fill = "green")
+        return[carre_vert]
+
+def cible_jaune():
+    pass
+    xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
+    while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
+        xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
+    else:
+        carre_jaune = canvas.create_rectangle((xg, yg), (xd, yd), fill = "yellow")
+        return[carre_jaune]
+###########################################################################################################################
+
 def cases_restart():
     for x in range (329, 376):
         for j in range (329, 376):
-            rectangle_automatique(canvas, 47, 329, 47, 376, 2, "black", "black", "black")
+            rectangle_automatique(canvas, 329, 329, 92, 92, 10, "black", "black", "black")
 
 
 
