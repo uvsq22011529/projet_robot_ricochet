@@ -165,6 +165,16 @@ def deplacement(event):
         pos_robot[2][1] = -40
     canvas.move(robots, -40, )
 
+def tab():
+    tab = [[]]
+    for x in range (1, 640):
+        for i in range (16):
+            while x%16 == 0:
+                i+= 1
+    for y in range (1, 640):
+        for j in range (len(tab[i][j])):
+            while y%16 == 0:
+                j+= 1
 
 
 

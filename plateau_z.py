@@ -2,11 +2,53 @@ from tkinter import *
 import math
 import random
 
+#fonctions à faire :
+        # plateau -> qui genere et affiche le plateau
+        # cibles -> qui genere et affiche les cibles 
+        # mouvement -> qui permet aux robots de se déplacer (verticalement et horizontalement)
+        # clr_mvmt -> qui permet d'affichet les possibles deplacements d'un robot lorsque l'on clique dessus
+        # click -> btn click 
+        # win -> qui permet d'afficher un message lorsque l'un des robots gagne 
+        # restart -> qui permet de recommencer une partie 
+        # cpt -> qui permet de compter le nombre de deplacements qu'un robot a fait 
+        # save -> qui permet de sauvegarder une partie
+        # return -> qui permet de revenir en arriere (d'annuler son deplcement)
+        # edit_plt -> qui permet d'éditer le plateau 
+        # obstacle -> qui permet d'arreter le robot lorsqu'il est devant un obstacle 
+
+#variables :
+        # longueur = 640
+        # largeur = 640
+        # cote = 40
+        # robot_r
+        # robot_b
+        # robot_v
+        # robot_j
+        # cible_r
+        # cible_b
+        # cible_v
+        # cible_j
+        # btn_restart
+        # btn_save
+        # btn_load
+
+
 
 
 
 def rectangle_automatique(leCanvas, x0,y0,largeur,hauteur,bordure,couleur1,couleur2,couleur3) :
     leCanvas.create_rectangle(x0+bordure//2, y0+bordure//2, x0+largeur-bordure//2, y0+hauteur-bordure//2, fill=couleur1, activefill=couleur2, outline=couleur3, width=bordure)
+
+def tab():
+    tab = [[]]
+    for x in range (1, 640):
+        for i in range (16):
+            while x%16 == 0:
+                i+= 1
+    for y in range (1, 640):
+        for j in range (len(tab[i][j])):
+            while y%16 == 0:
+                j+= 1
 
 fenetre = Tk()
 
@@ -28,9 +70,11 @@ for y in range(0,longueur, cote_carre) :
 
 ###############################################################################################""
 def robot_rouge():
+    pos_robot_r = [0]
     x, y = cote_carre/2 , cote_carre/2
     rayon = 10
-    cercle_rouge = canvas.create_oval((x-rayon, y-rayon),(x+rayon, y+rayon), fill="red")
+    pos_robot_r.append((x, y))
+    cercle_rouge = canvas.create_oval((x-rayon, y-rayon),(x+rayon, y+rayon), fill="red", command = surligne_deplac_rouge)
     return [cercle_rouge]
 
 def robot_bleu():
@@ -109,8 +153,21 @@ def restart_game(event):
 
 #######################################################################################################
 
-def mouvement_rob_bleu ():
+
+def surligne_deplac_rouge(rob_r):
     pass
+    global pos_robot_r
+    if Click == (pos_robot_r):
+        for x in range (1, 752):
+            for y in range (1, 752):
+                x += 16
+                y += 16
+                canvas.bind("<Button-1>",activefill = "red")
+        
+
+
+
+
 
     
 
@@ -120,6 +177,7 @@ def mouvement_rob_bleu ():
 
 
 rob_r = robot_rouge()
+surligne_deplac_rouge(rob_r)
 rob_b = robot_bleu()
 rob_v = robot_vert()
 rob_j = robot_jaune()
