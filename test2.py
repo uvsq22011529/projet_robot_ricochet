@@ -23,7 +23,7 @@ def grid():
 def generate():
     """ affiche walls + pos target + pos robots"""
     global tableau, target, pos_robot
-    fichier = open("text.txt", "r")
+    fichier = open("Board.txt", "r")
     nb_line = 0
     for line in fichier:
         if 4 <= nb_line < 36:
