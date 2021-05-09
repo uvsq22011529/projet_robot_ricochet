@@ -32,124 +32,125 @@ import random
         # btn_save
         # btn_load
 
+#interface graphique#####################################################################################""
+window_lenght, window_width = 1000, 1000
 
-
-
-
-def rectangle_automatique(leCanvas, x0,y0,largeur,hauteur,bordure,couleur1,couleur2,couleur3) :
-    leCanvas.create_rectangle(x0+bordure//2, y0+bordure//2, x0+largeur-bordure//2, y0+hauteur-bordure//2, fill=couleur1, activefill=couleur2, outline=couleur3, width=bordure)
+def automatic_rectangle(leCanvas, x0, y0, window_lenght, window_width, border, color1, color2, color3) :
+    leCanvas.create_rectangle((x0+border)//2, (y0+border)//2, (x0 + window_width - border)//2, (y0 + window_lenght - border)//2, fill=color1, activefill=color2, outline=color3, width=border)
 
 def tab():
+    pass
     tab = [[]]
     for x in range (1, 640):
         for i in range (16):
             while x%16 == 0:
                 i+= 1
     for y in range (1, 640):
-        for j in range (len(tab[i][j])):
+        for j in range (16):
             while y%16 == 0:
                 j+= 1
 
-fenetre = Tk()
-
-fenetre.title("robot ricochet")
-
-fenetre.geometry("1000x1000")
+window = Tk()
+window.title("robot ricochet")
+window.geometry("1000x1000")
 
 
-canvas = Canvas(fenetre, width=752, height=752, bg='ivory', bd=0, highlightthickness=0)
 
+
+canvas = Canvas(window, width=640, height=640, bg='ivory', bd=0)
 canvas.place(x=100,y=10)
 
-longueur, largeur = 752, 752
-cote_carre = 47
+plate_lenght, plate_width = 640, 640
+square_side = 40
 
-for y in range(0,longueur, cote_carre) :
-    for x in range(0,largeur, cote_carre) :
-        rectangle_automatique(canvas, x, y, 55, 55, 2, "#ffffcc", "green", "brown")
+for y in range(0,plate_lenght, square_side) :
+    for x in range(0,plate_width, square_side) :
+        automatic_rectangle(canvas, x, y, 55, 55, 2, "#ffffcc", "grey", "brown")
 
-###############################################################################################""
-def robot_rouge():
-    pos_robot_r = [0]
-    x, y = cote_carre/2 , cote_carre/2
-    rayon = 10
-    pos_robot_r.append((x, y))
-    cercle_rouge = canvas.create_oval((x-rayon, y-rayon),(x+rayon, y+rayon), fill="red", command = surligne_deplac_rouge)
-    return [cercle_rouge]
+###############################################################################################
 
-def robot_bleu():
-    x, y = largeur-(cote_carre/2), cote_carre/2
-    rayon = 10
-    cercle_bleu = canvas.create_oval((x-rayon, y-rayon), (x+rayon, y + rayon), fill = "blue")
-    return [cercle_bleu]
 
-def robot_vert():
-    x, y = cote_carre/2, largeur-(cote_carre/2)
-    rayon = 10
-    cercle_vert = canvas.create_oval((x-rayon, y-rayon), (x+rayon, y+rayon), fill = "green")
-    return [cercle_vert]
+###############################################################################################
+plate_lenght, plate_width = 640, 640
+square_side = 40
 
-def robot_jaune():
-    x, y = largeur-(cote_carre/2),largeur-(cote_carre/2)
-    rayon = 10
-    cercle_jaune = canvas.create_oval((x-rayon, y-rayon), (x+rayon, y+rayon), fill = "yellow")
-    return[cercle_jaune]
+def red_robot():
+    x, y = square_side/2 , square_side/2
+    radius = 10
+    red_circle = canvas.create_oval((x-radius, y-radius),(x+radius, y+radius), fill="red")
+    return [red_circle]
+
+def blue_robot():
+    x, y = plate_width-(square_side/2), square_side/2
+    radius = 10
+    blue_circle = canvas.create_oval((x-radius, y-radius), (x+radius, y + radius), fill = "blue")
+    return [blue_circle]
+
+def green_robot():
+    x, y = square_side/2, plate_width-(square_side/2)
+    radius = 10
+    green_circle = canvas.create_oval((x-radius, y-radius), (x+radius, y+radius), fill = "green")
+    return [green_circle]
+
+def yellow_robot():
+    x, y = plate_width - (square_side/2), plate_width - (square_side/2)
+    radius = 10
+    yellow_circle = canvas.create_oval((x - radius, y - radius), (x + radius, y + radius), fill = "yellow")
+    return [yellow_circle]
 
 #################################################################################################
+#robots = []
+#pos_robot_r = []
 
-def cible_rouge():
+def red_target():
     pass
-    xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
-    while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
-        xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
-    else:
-        carre_rouge = canvas.create_rectangle((xg, yg), (xd, yd), fill = "red")
-        return[carre_rouge]
+    x_r_t = random.randrange(40, 600, 40)
+    y_r_t = random.randrange(40, 600, 40)
+    r_t_position = (x_r_t//square_side, y_r_t//square_side)
+    pos_robot.append(position_red)
+    robots.append(Red)
 
-def cible_bleu():
+def blue_target():
     pass
-    xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
-    while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
-        xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
-    else:
-        carre_bleu = canvas.create_rectangle((xg, yg), (xd, yd), fill = "bleu")
-        return[carre_bleu]
+    x_b_t = random.randrange(40, 600, 40)
+    y_b_t = random.randrange(40, 600, 40)
+    b_t_position = (x_b_t//square_side, y_b_t//square_side)
+    pos_robot.append(position_blue)
+    robots.append(Blue)
 
-def cible_vert():
+def green_target():
     pass
-    xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
-    while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
-        xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
-    else:
-        carre_vert = canvas.create_rectangle((xg, yg), (xd, yd), fill = "green")
-        return[carre_vert]
+    x_g_t = random.randrange(40, 600, 40)
+    y_g_t = random.randrange(40, 600, 40)
+    g_t_position = (x_g_t//square_side, y_g_t//square_side)
+    pos_robot.append(position_green)
+    robots.append(Green)
 
-def cible_jaune():
+def yellow_target():
     pass
-    xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
-    while (xg-xd != 47) or (yg-yd != 47) and (xg%16 != 0) or (xd%16 != 0) or (yg%16 != 0) or (yd%16 != 0) :
-        xg, yg, xd, yd = random.randint(1, 752), random.randint(1, 752), random.randint(1, 752), random.randint(1, 752)
-    else:
-        carre_jaune = canvas.create_rectangle((xg, yg), (xd, yd), fill = "yellow")
-        return[carre_jaune]
+    x_y_t = random.randrange(40, 600, 40)
+    y_y_t = random.randrange(40, 600, 40)
+    y_t_position = (x_y_t//square_side, y_y_t//square_side)
+    pos_robot.append(position_yellow)
+    robots.append(Yellow)
+
 
 ###########################################################################################################################
 
 def cases_restart():
-    for x in range (329, 376):
-        for j in range (329, 376):
-            rectangle_automatique(canvas, 329, 329, 92, 92, 10, "black", "black", "black")
+    for x in range (280, 320):
+        for j in range (280, 320):
+            automatic_rectangle(canvas, 329, 329, 80, 80, 10, "black", "black", "black")
 
 def restart_game(event):
     pass
     click = False
-    for x in range(329, 376):
-        for y in range (329, 376):
+    for x in range(280, 320):
+        for y in range (280, 320):
             if click == True:
                 command = lambda : restart()
     canvas.bind("<Button-1>", Clic)
     return
-
 
 #######################################################################################################
 
@@ -176,15 +177,18 @@ def surligne_deplac_rouge(rob_r):
 
 
 
-rob_r = robot_rouge()
-surligne_deplac_rouge(rob_r)
-rob_b = robot_bleu()
-rob_v = robot_vert()
-rob_j = robot_jaune()
+rob_r = red_robot()
+rob_b = blue_robot()
+rob_v = green_robot()
+rob_j = yellow_robot()
 btn_restart = cases_restart()
+#tab()
+#surligne_deplac_rouge(rob_r)
 #restart_game(event)
-"""cib_r = cible_rouge()
-cib_b = cible_bleu()
-cib_v = cible_vert()
-cib_j = cible_jaune()"""
-fenetre.mainloop()
+"""cib_r = red_target()
+cib_b = blue_target()
+cib_v = green_target()
+cib_j = yellow_target()"""
+window.mainloop()
+
+
