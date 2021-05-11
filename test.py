@@ -155,10 +155,20 @@ def show_robots():
  
 
 def deplacement(event):
-    pass
     global pos_robot, robots
     key = event.keysym
+    print(key)
     if key == "Up" :
+<<<<<<< HEAD
+        pos_robot[0][1] += 1
+        pos_robot[1][1] += 1
+        pos_robot[2][1] += 1
+        pos_robot[3][1] += 1
+    canvas.move(robots[0], pos_robot[0][1], 0)
+    canvas.move(robots[1], pos_robot[1][1], 0)
+    canvas.move(robots[2], pos_robot[2][1], 0)
+    canvas.move(robots[3], pos_robot[3][1], 0)
+=======
         pos_robot[0][1] = -40
         pos_robot[1][1] = -40
         pos_robot[2][1] = -40
@@ -175,7 +185,9 @@ def tab():
         for j in range (len(tab[i][j])):
             while y%16 == 0:
                 j+= 1
+>>>>>>> 70f118a2439950c08b9d8f65eec9692291961a5a
 
+    
 
 
 
@@ -196,7 +208,7 @@ bouton.grid()
 #Autre
 
 canvas.bind("<1>", clic)
-canvas.bind("<Key>", deplacement)
+canvas.bind_all("<KeyPress>", deplacement)
 
 
 

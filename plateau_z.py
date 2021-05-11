@@ -3,32 +3,34 @@ import math
 import random
 
 #fonctions à faire :
-        # plateau -> qui genere et affiche le plateau
-        # cibles -> qui genere et affiche les cibles 
-        # mouvement -> qui permet aux robots de se déplacer (verticalement et horizontalement)
+  #(OK) # generate -> qui genere et affiche le plateau à l'aide d'un fichier txt 
+  #(OK) # show_target -> qui affiche la cible 
+  #(OK) # show_robots -> qui affiche les robots 
+  #(OK) # keyboard -> qui permet de se déplacer (verticalement et horizontalement)
+  #(OK) # deplacement -> qui permet de déplacer un robot lorsqu'on clique dessus
+        # maj_pos -> qui permet de réinisialiser la position du robot 
         # clr_mvmt -> qui permet d'affichet les possibles deplacements d'un robot lorsque l'on clique dessus
-        # click -> btn click 
+  #(OK) # click -> click
+  #(OK) # position -> qui permet de return une position d'une case  
         # win -> qui permet d'afficher un message lorsque l'un des robots gagne 
         # restart -> qui permet de recommencer une partie 
         # cpt -> qui permet de compter le nombre de deplacements qu'un robot a fait 
         # save -> qui permet de sauvegarder une partie
         # return -> qui permet de revenir en arriere (d'annuler son deplcement)
-        # edit_plt -> qui permet d'éditer le plateau 
-        # obstacle -> qui permet d'arreter le robot lorsqu'il est devant un obstacle 
+  #(OK) # obstacle -> qui permet d'arreter le robot lorsqu'il est devant un obstacle 
+        # Unfo -> qui permet de revenir en arrière 
 
-#variables :
-        # longueur = 640
-        # largeur = 640
-        # cote = 40
-        # robot_r
-        # robot_b
-        # robot_v
-        # robot_j
-        # cible_r
-        # cible_b
-        # cible_v
-        # cible_j
-        # btn_restart
+#constantes :
+        # HEIGHT = 640
+        # WIDHT = 640
+        # SIZE = 16
+        # COTE = 40 (HEIGHT//16)
+#variable :
+        # tableau = None
+        # target = None
+        # pos_robot = []
+        # robots = []
+#bouton :
         # btn_save
         # btn_load
 
